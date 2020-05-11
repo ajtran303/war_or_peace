@@ -19,7 +19,8 @@ class CardTextFileGenerator
   end
 
   def write_it
-    File.open("#{"shuffled_" if @shuffled}#{@style.downcase}_deck#{"s" if @i > 1}.txt", "w") do |file|
+    name = "#{"shuffled_" if @shuffled}#{@style.downcase}_deck#{"s" if @i > 1}.txt"
+    File.open(name, "w") do |file|
       @deck.each do |d_elem|
         file.puts("#{d_elem}".gsub(/[\[\]\"]/, ""))
       end
